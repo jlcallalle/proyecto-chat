@@ -5,7 +5,15 @@ module.exports = httpServer => {
 
     io.on("connection", socket => {
 
-        console.log(socket.id);
+        // console.log(socket.id);
+        socket.on("message", message => {
+
+            io.emit("message", {
+                user: "Jorge",
+                message
+            });
+    
+           })
 
     });
 
